@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// 完全修飾子記述ルーティング
+// Route::get('/folders/{id}/tasks', 'App\Http\Controllers\TaskController@index')->name('tasks.index');
+
+// 配列に格納ルーティング
+Route::get('/folders/{id}/tasks', [TaskController::class, 'index'])->name('tasks.index');
+
+// Route::get('/carutes/{id}/customer', 'CustomerController@index')->name('customers.index');
