@@ -8,6 +8,11 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return "Hello World";
+        コントローラーコントローラー        // フォルダデータをデータベースから取得
+        $folders = Folder::all();
+
+        return view('tasks/index', [
+            'folders' => $folders,
+        ]);
     }
 }
